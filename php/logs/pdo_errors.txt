@@ -1,0 +1,2 @@
+09:21:11, Tue, 04 Feb 2014 >>>> SQLSTATE[42000] [1049] Unknown database 'kongachat'
+09:21:44, Tue, 04 Feb 2014 >>>> SQLSTATE[HY093]: Invalid parameter number
