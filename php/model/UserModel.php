@@ -61,7 +61,8 @@ class UserModel extends BaseModel
         return $this->getAllByParam(Users::GET_USERS, $auth);
     }
 
-    public function updateActivityTime(){
-
+    public function updateActivityTime($user_id, $current_time)
+    {
+        return $this->execute(Users::UPDATE_ACTIVITY_TIME, array($current_time, $user_id));
     }
 } 

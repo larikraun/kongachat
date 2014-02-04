@@ -48,13 +48,15 @@ class MessageController
 {
     public static function send($text, $sender, $recipient)
     {
+        session_write_close();
         $messageModel = new MessageModel();
-        $messageModel->send($text, $sender, $recipient);
+        $messageModel->send($text,$recipient, $sender);
         Util::returnResponse(true);
     }
 
     public static function receive($user_id, $last_time)
     {
+        session_write_close();
         $userModel = new UserModel();
         $activity_time = $userModel->getLastActivityTime($user_id);
         $activity_time_s = strtotime($activity_time);
@@ -62,14 +64,41 @@ class MessageController
         $messageModel = new MessageModel();
         if ($activity_time_s == $last_time_s) {
 //todo poll and send results
-
+            $time_out = 20;
+            while ($time_out > 0) {
+                $messages = $messageModel->getMessages($activity_time, $last_time, $user_id);
+                sleep(1);
+                $time_out--;
+                if (count($messages) > 0) {
+                    $response = new stdClass();
+                    $response->users = $userModel->getUserById($user_id);
+                    $current_time = Util::getCurrentDateTime();
+                    $response->current_server_time = $current_time;
+                    $userModel->updateActivityTime($user_id, $current_time);
+                    $response->messages = $messages;
+                    Util::returnResponse($response);
+                    exit;
+                }
+            }
+            $messages = array();
+            $response = new stdClass();
+            $response->messages = $messages;
+            $response->users = $userModel->getUserById($user_id);
+            $current_time = Util::getCurrentDateTime();
+            $response->current_server_time = $current_time;
+            $userModel->updateActivityTime($user_id, $current_time);
+            Util::returnResponse($response);
         } else {
             //get from activity time upwards
             $response = new stdClass();
             $response->messages = $messageModel->getMessagesBelow($last_time, $user_id);
-            $userModel->updateActivityTime();
-            $response->current_server_time = Util::getCurrentDateTime();
+
+            $response->users = $userModel->getUserById($user_id);
+            $current_time = Util::getCurrentDateTime();
+            $response->current_server_time = $current_time;
+            $userModel->updateActivityTime($user_id, $current_time);
             Util::returnResponse($response);
+
         }
 
     }

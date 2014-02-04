@@ -18,7 +18,23 @@ class MessageModel extends BaseModel
 
     public function getMessagesBelow($last_time, $recipient)
     {
-        return $this->getAllByParam(Messages::GET_MESSAGES_BELOW, array($recipient, $last_time));
+        $messages = $this->getAllByParam(Messages::GET_MESSAGES_BELOW, array($recipient, $last_time));
+        $userModel = new UserModel();
+        foreach ($messages as &$message) {
+            $message[Message::$sender] = $userModel->getUserById($message[Message::$sender]);
+        }
+        return $messages;
     }
+
+    public function getMessages($activity_time, $last_time, $recipient)
+    {
+        $messages = $this->getAllByParam(Messages::GET_MESSAGES, array($recipient, $activity_time));
+        $userModel = new UserModel();
+        foreach ($messages as &$message) {
+            $message[Message::$sender] = $userModel->getUserById($message[Message::$sender]);
+        }
+        return $messages;
+    }
+
 
 } 

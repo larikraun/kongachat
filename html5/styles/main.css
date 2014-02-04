@@ -44,8 +44,16 @@ textarea.conversation {
 
 }
 
-input[type='submit'] {
+input[type='button'], input[type='submit'] {
 	cursor: pointer;
+}
+
+.status_1 {
+	color: green;
+}
+
+.status_0 {
+	color: red;
 }
 
 /*special style for tablet*/
