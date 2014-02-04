@@ -1,5 +1,5 @@
 * {
-	font-family: "OPen Sans";
+	font-family: "Open Sans";
 	padding: 0px;
 	margin: 0px;
 }
@@ -24,3 +24,36 @@ input {
 	padding: 4px;
 	margin: 4px 0px;
 }
+
+div.conversation {
+	height: 400px;
+	margin: 4px 0px;
+	overflow-y: scroll;
+}
+
+textarea.conversation {
+	height: 64px;	
+
+}
+
+.conversation {
+	width: 300px;
+	max-width: 300px;
+	border: solid 1px #aaa;
+	padding: 4px;
+
+}
+
+input[type='submit'] {
+	cursor: pointer;
+}
+
+/*special style for tablet*/
+@media screen (min-width: 500px) and (max-width: 700px) {
+	.conversation {
+		max-width: 90%;
+	}
+} 
+
+/*special style for phones*/
+@media screen (min-width: 500px) and (max-width: 700px) {} 

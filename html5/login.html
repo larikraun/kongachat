@@ -1,18 +1,5 @@
-<!doctype public html>
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="styles/main.css">
-	<script type="text/javascript" src="scripts/jquery.js"></script>
-	<script type="text/javascript" src="scripts/angular.js"></script>
-	<script type="text/javascript" src="scripts/script.js"></script>
-	<title></title>
-</head>
-<body>
-	<header></header>
-	<nav></nav>
-	<section class='main'>
 		<article>
-			<form method='post'>
+			<form method='post' action='/public/processor.php?action=signin'>
 				<p>email</p>
 				<input type='email' name='email' placeholder='email@provider.com' />
 				<p>password</p>
@@ -20,9 +7,5 @@
 				<p></p>
 				<input type='submit' name='submit' value='Login' />
 			</form>
-			<footer>Sign up</footer>
+			<footer>Don't have an account? <a href='/public/sign-up'>Sign up</a></footer>
 		</article>
-	</section>
-	<footer></footer>
-</body>
-</html>

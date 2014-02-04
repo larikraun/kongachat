@@ -1,0 +1,31 @@
+<article ng-app='konga'>
+	
+	<form ng-controller='chat' name='f_signup' method='post' action='/public/processor.php?action=signup'>
+		
+		<p></p>
+		<select>
+			<option ng-repeat='user in users' value='{{user.user_id}}'><span ng-if='{{user.status}}'><img src='' /></span></a> {{user.email}}</option>
+		</select>		
+		<p></p>
+		<div class='conversation'>	
+			<ul>
+			</ul>
+		</div>
+		<p></p>
+		<textarea class='conversation'></textarea>
+		<p></p>
+		<input type='submit' value='send' />		
+	</form>
+</article>
+
+<script type="text/javascript">
+	var objDiv = jQuery("div.conversation");
+	jQuery(objDiv).scrollTop(100000);
+</script>
+
+<script type="text/javascript">
+var app = angular.module('konga', []);
+app.controller('chat', function($scope){
+	$scope.users = /users/;	
+});
+</script>

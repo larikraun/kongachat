@@ -1,2 +1,5 @@
 09:21:11, Tue, 04 Feb 2014 >>>> SQLSTATE[42000] [1049] Unknown database 'kongachat'
 09:21:44, Tue, 04 Feb 2014 >>>> SQLSTATE[HY093]: Invalid parameter number
+10:00:57, Tue, 04 Feb 2014 >>>> SQLSTATE[28000] [1045] Access denied for user 'konga'@'localhost' (using password: YES)
+10:01:59, Tue, 04 Feb 2014 >>>> SQLSTATE[42000] [1049] Unknown database 'kongachat'
+10:09:49, Tue, 04 Feb 2014 >>>> SQLSTATE[42S02]: Base table or view not found: 1146 Table 'konga_chat.messages' doesn't exist

@@ -49,4 +49,19 @@ class UserModel extends BaseModel
     {
         $this->execute(Users::UPDATE_STATUS, array($status, $user_id));
     }
+
+    public function getLastActivityTime($user_id)
+    {
+        $activity_time = $this->getByParam(Users::GET_LAST_ACTIVITY_TIME, $user_id);
+        return $activity_time[User::$last_activity_time];
+    }
+
+    public function getUsers($auth)
+    {
+        return $this->getAllByParam(Users::GET_USERS, $auth);
+    }
+
+    public function updateActivityTime(){
+
+    }
 } 
