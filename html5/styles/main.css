@@ -1,0 +1,26 @@
+* {
+	font-family: "OPen Sans";
+	padding: 0px;
+	margin: 0px;
+}
+
+.main {
+	margin: auto;
+	max-width: 1024px;
+}
+
+article {
+	padding: 4px;
+	margin: 4px 0px;
+}
+
+form p {
+	font-size: 1.2em;
+}
+
+input {
+	font-size: 1.2em;
+	border: solid 1px #aaa;
+	padding: 4px;
+	margin: 4px 0px;
+}
