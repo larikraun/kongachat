@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !/styles/.*$ 
+RewriteCond %{REQUEST_URI} !/scripts/.*$ 
+RewriteCond %{REQUEST_URI} !/images/.*$ 
+RewriteCond %{REQUEST_URI} !/processor\.php.*$ 
+RewriteRule ^.*$ controller.php

@@ -1,5 +1,5 @@
 <article ng-app='konga'>
-	<form ng-controller='chat' name='f_signup' method='post' action='/public/processor.php?action=signup'>
+	<form ng-controller='chat' name='f_signup' method='post' action='/public/model.php?action=signup'>
 		<p></p>
 		<select>
 			<option ng-repeat='user in users' value='{{user.user_id}}' class='status_{{user.status}}'> {{user.email}}</option>
@@ -38,7 +38,7 @@ jQuery(document).ready(function($){
 	$('input[type=button]').click(function(){
 		var theMsg =  $('textarea.conversation').val();
 		$.ajax({
-			url: '/public/processor.php?action=sendChat', 
+			url: '/public/model.php?action=sendChat', 
 			type: 'post', 
 			data: {
 				to: lsh.getItem('toWho'), 
